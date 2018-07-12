@@ -15,6 +15,11 @@
   text-align: center;
   color: #fff;
   padding: 1rem;
+  transition: transform 0.45s ease-in;
+}
+
+.robots li:hover {
+  transform: scale(1.05,1.05);
 }
 
 .robots li img {
@@ -29,6 +34,18 @@
 
 .robots li p {
   font-size: 1.6rem;
+}
+
+.search-box {
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.search-box form input {
+  height: 3.5rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 
