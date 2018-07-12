@@ -1,0 +1,45 @@
+.robots {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.robots li {
+  width: 90%;
+  margin: 2rem auto;
+  background: rgb(29, 62, 207);
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(2,2,2,0.3);
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+}
+
+.robots li img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.robots li h2 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.robots li p {
+  font-size: 1.6rem;
+}
+
+
+@media(min-width: 660px) {
+  .robots li {
+    width: 45%;
+  }
+}
+
+@media(min-width: 960px) {
+  .robots li {
+    width: 30%;
+  }
+}

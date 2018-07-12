@@ -3,7 +3,7 @@ import { Card } from './Card';
 
 export const Robots = props => {
   return (
-      <ul>
+      <ul className="robots">
           {props.robots.map((robot, i) => <Card key={i} name={robot.name} email={robot.name} img={robot.username}/>)}
       </ul>
   );
