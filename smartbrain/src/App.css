@@ -69,3 +69,14 @@
   right: 0;
   z-index: -1;
 }
+
+.face-reg {
+  width: 18rem;
+  height: auto;
+  margin: 2rem auto;
+}
+
+.face-reg img {
+  width: 100%;
+  height: 100%;
+}

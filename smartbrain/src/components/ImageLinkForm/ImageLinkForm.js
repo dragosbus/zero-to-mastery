@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ImageLinkForm = () => (
+const ImageLinkForm = ({onInputChange, onButtonSubmit}) => (
     <div className="link-form">
         <p>This magic will detect faces</p>
         <div className="form">
-            <input type="text"/>
-            <button>Detect</button>
+            <input onChange={onInputChange} type="text"/>
+            <button onClick={onButtonSubmit}>Detect</button>
         </div>
     </div>
 );
