@@ -61,8 +61,8 @@ class App extends Component {
    .catch(err=>console.log(err));
   }
 
-  onRouteChange() {
-    this.setState({route:''})
+  onRouteChange(route) {
+    this.setState({route:route})
   }
 
   render() {
@@ -73,7 +73,7 @@ class App extends Component {
         {this.state.route === 'signin' ?
           <SignIn onRouteChange={this.onRouteChange}/> :
           <div>
-            <Navigation/>
+            <Navigation onChangeRoute={this.onRouteChange}/>
             <Rank/>
             <ImageFormLink 
               onInputChange={this.onInputChange}
