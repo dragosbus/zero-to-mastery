@@ -1,8 +1,9 @@
 import React from 'react';
 
-const FaceRecognition = ({imageUrl}) => (
+const FaceRecognition = ({imageUrl, box}) => (
     <div className="face-reg">
-        <img src={imageUrl} alt=""/>
+        <img id="image" src={imageUrl} alt=""/>
+        <div className="box-face" style={{top: box.topRow, right:box.rightCol, bottom:box.bottomRow, left: box.leftCol}}></div>
     </div>
 );
 
