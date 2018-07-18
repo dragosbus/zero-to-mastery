@@ -1,13 +1,20 @@
 import React from 'react';
 
-const SignIn = () => (
+const SignIn = ({onRouteChange}) => (
     <div className="signin">
         <h2>Sign In</h2>
         <form>
-            <input type="email"/>
-            <input type="password"/>
-            <button type="submit">Sign In</button>
+            <div>
+                <label htmlFor={'email'}>Email</label>
+                <input id="email" type="email"/>
+            </div>
+            <div>
+                <label htmlFor={'password'}>Password</label>
+                <input id="password" type="password"/>
+            </div>
+            <button onClick={onRouteChange} type="submit">Sign In</button>
         </form>
+        <a href="#">Register</a>
     </div>
 );
 

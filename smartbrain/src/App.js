@@ -25,6 +25,7 @@ class App extends Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonSubmit = this.onButtonSubmit.bind(this);
+    this.onRouteChange = this.onRouteChange.bind(this);
   }
 
   calculateFaceLocation(data) {
@@ -61,7 +62,7 @@ class App extends Component {
   }
 
   onRouteChange() {
-    
+    this.setState({route:''})
   }
 
   render() {
