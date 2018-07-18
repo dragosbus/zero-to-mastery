@@ -6,4 +6,57 @@
 
 .navigation p {
   font-size: 1.75rem;
+  color: #fff;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.logo img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.link-form {
+  margin: 0 auto;
+  width: 90%;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(2,2,2,0.25);
+}
+
+.link-form p {
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.form {
+  text-align: center;
+}
+
+.form input {
+  height: 3rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.form button {
+  height: 3rem;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 0 1.5rem;
+  cursor: pointer;
+}
+
+.rank {
+  margin-top: 11rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 300;
 }
