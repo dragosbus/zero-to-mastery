@@ -11,7 +11,7 @@ const Navigation = ({onRouteChange, isSignedIn}) => {
     } else {
         return (
             <nav className="navigation">
-                <p onClick={()=>onRouteChange('signin')}>Sign In</p>
+                <p onClick={()=>onRouteChange('home')}>Sign In</p>
                 <p onClick={()=>onRouteChange('register')}>Register</p>
             </nav>
         );
