@@ -5,6 +5,7 @@ import ImageFormLink from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 import Particle from './components/Particles/Particles';
 import Clarifai from 'clarifai';
 import './App.css';
@@ -66,24 +67,34 @@ class App extends Component {
   }
 
   render() {
+
+    let page;
+
+    switch(this.state.route) {
+      case 'signin':
+        page =  <SignIn onRouteChange={this.onRouteChange}         />
+      case 'register':
+        page =  <Register onRouteChange={this.onRouteChange}/>
+      case 'home':
+        page =  <div>
+        <Navigation onRouteChange={this.onRouteChange}/>
+        <Rank/>
+        <ImageFormLink 
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}
+        />
+        <FaceRecognition 
+          box={this.state.box} 
+          imageUrl={this.state.imageUrl}
+        />
+      </div>
+    }
+
     return (
       <div className="App">
         <Particle/>
         <Logo/>
-        {this.state.route === 'signin' ?
-          <SignIn onRouteChange={this.onRouteChange}/> :
-          <div>
-            <Navigation onRouteChange={this.onRouteChange}/>
-            <Rank/>
-            <ImageFormLink 
-              onInputChange={this.onInputChange}
-              onButtonSubmit={this.onButtonSubmit}
-            />
-            <FaceRecognition 
-              box={this.state.box} 
-              imageUrl={this.state.imageUrl}
-            />
-          </div>}
+        {page}
       </div>
     );
   }

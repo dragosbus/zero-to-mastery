@@ -14,7 +14,7 @@ const SignIn = ({onRouteChange}) => (
             </div>
             <button onClick={()=>onRouteChange('home')} type="submit">Sign In</button>
         </form>
-        <a href="#">Register</a>
+        <a href="register">Register</a>
     </div>
 );
 
