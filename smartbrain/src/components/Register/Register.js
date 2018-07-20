@@ -13,7 +13,7 @@ const Register = ({onRouteChange}) => (
                 <label htmlFor={'password'}>Password</label>
                 <input id="password" type="password"/>
             </div>
-            <button onClick={()=>onRouteChange('home')} type="submit">Register</button>
+            <button onClick={()=>onRouteChange('signin')} type="submit">Register</button>
         </form>
     </div>
 );

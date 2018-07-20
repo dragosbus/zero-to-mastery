@@ -22,7 +22,8 @@ class App extends Component {
       input: '',
       imageUrl:'',
       box: {},
-      route:'signin'
+      route:'signin',
+      isSignedIn: false
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonSubmit = this.onButtonSubmit.bind(this);
@@ -63,6 +64,11 @@ class App extends Component {
   }
 
   onRouteChange(route) {
+    if(route === 'signout') {
+      this.setState({isSignedIn: false});
+    } else {
+      this.setState({isSignedIn: true});
+    }
     this.setState({route:route})
   }
 
@@ -73,11 +79,12 @@ class App extends Component {
     switch(this.state.route) {
       case 'signin':
         page =  <SignIn onRouteChange={this.onRouteChange}         />
+        break;
       case 'register':
         page =  <Register onRouteChange={this.onRouteChange}/>
+        break;
       case 'home':
         page =  <div>
-        <Navigation onRouteChange={this.onRouteChange}/>
         <Rank/>
         <ImageFormLink 
           onInputChange={this.onInputChange}
@@ -88,11 +95,13 @@ class App extends Component {
           imageUrl={this.state.imageUrl}
         />
       </div>
+      break;
     }
 
     return (
       <div className="App">
         <Particle/>
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
         <Logo/>
         {page}
       </div>
