@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Rank = () => (
+const Rank = (props) => (
     <div className="rank">
-        <div>{'Dragos, your current rank is'}</div>
+        <div>{`${props.name} your rank is ${props.entries}`}</div>
     </div>
 );
 

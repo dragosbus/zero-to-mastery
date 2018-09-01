@@ -37,7 +37,7 @@ app.post('/signin', (req, res) => {
     });
 
     if (req.body.email === db.users[0].email && req.body.password === db.users[0].password) {
-        res.json('Succes');
+        res.json(db.users[0]);
     } else {
         res.status(400).send({
             error: 'User not exist'
