@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const db = {
     users: [{
@@ -25,10 +28,14 @@ const db = {
 };
 
 app.get('/', (req, res) => {
-    res.send('Is working')
+    res.json(db.users);
 });
 
 app.post('/signin', (req, res) => {
+    bcrypt.compare(db.users[0].password, db.users[0].hash, (err, res)=>{
+        console.log(res);
+    });
+
     if (req.body.email === db.users[0].email && req.body.password === db.users[0].password) {
         res.json('Succes');
     } else {
@@ -44,6 +51,9 @@ app.post('/register', (req, res) => {
         name,
         password
     } = req.body;
+    bcrypt.hash(password, null, null, (err, hash)=>{
+        console.log(hash);
+    });
     db.users.push({
         id: '125',
         name: name,
