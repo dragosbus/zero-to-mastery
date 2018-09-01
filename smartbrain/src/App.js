@@ -23,12 +23,31 @@ class App extends Component {
       imageUrl:'',
       box: {},
       route:'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.onButtonSubmit = this.onButtonSubmit.bind(this);
     this.onRouteChange = this.onRouteChange.bind(this);
   }
+
+  loadUser = data => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined
+      }
+    });
+  };
 
   calculateFaceLocation(data) {
     const face = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -81,7 +100,7 @@ class App extends Component {
         page =  <SignIn onRouteChange={this.onRouteChange}         />
         break;
       case 'register':
-        page =  <Register onRouteChange={this.onRouteChange}/>
+        page =  <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
         break;
       case 'home':
         page =  <div>
