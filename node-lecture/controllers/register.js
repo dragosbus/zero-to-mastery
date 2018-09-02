@@ -4,6 +4,11 @@ const register = (req, res, knex, bcrypt) => {
         name,
         password
     } = req.body;
+    if (!email || !name || !password) {
+        return res.status(404).send({
+            error: 'Please fill the inputs'
+        });
+    }
     const hash = bcrypt.hashSync(password);
     knex.transaction(trx => {
         trx.insert({
