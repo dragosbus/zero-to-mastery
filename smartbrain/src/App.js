@@ -31,9 +31,6 @@ class App extends Component {
         joined: ''
       }
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onButtonSubmit = this.onButtonSubmit.bind(this);
-    this.onRouteChange = this.onRouteChange.bind(this);
   }
 
   loadUser = data => {
@@ -48,7 +45,7 @@ class App extends Component {
     });
   };
 
-  calculateFaceLocation(data) {
+  calculateFaceLocation = data => {
     const face = data.outputs[0].data.regions[0].region_info.bounding_box;
 
     const image = document.getElementById('image');
@@ -61,17 +58,17 @@ class App extends Component {
       rightCol: width - face.right_col * width,
       bottomRow: height - face.bottom_row * height
     };
-  }
+  };
 
-  displayFaceBox(box) {
+  displayFaceBox = box => {
     this.setState({ box: box });
-  }
+  };
 
-  onInputChange(e) {
+  onInputChange = e => {
     this.setState({ input: e.target.value });
-  }
+  };
 
-  onButtonSubmit() {
+  onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
     faceML.models
@@ -95,23 +92,23 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(res));
       })
       .catch(err => console.log(err));
-  }
+  };
 
-  onRouteChange(route) {
+  onRouteChange = route => {
     if (route == 'home') {
       this.setState({ isSignedIn: true });
     } else {
       this.setState({ isSignedIn: false });
     }
     this.setState({ route: route });
-  }
+  };
 
   render() {
     let page;
 
     switch (this.state.route) {
       case 'signin':
-        page = <SignIn onRouteChange={this.onRouteChange} />;
+        page = <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />;
         break;
       case 'register':
         page = <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />;
